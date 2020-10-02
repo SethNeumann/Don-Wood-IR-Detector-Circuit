@@ -1,10 +1,7 @@
-### How to use this template:
-
-  1. Create a repo using this template, 
-  2. Create your project content using eagle...
-  3. Edit the other text files to describe your project
-  4. git add .
-  5. git commit -m "add to git"
-  6. git tag -a 1.0 -m 1.0
-  7. git push origin 1.0
-  
+Don Wood offerd this circuit for an optical detector based on an IR emmitter/detector pair and
+it used a segment of Dr. Chubb's SMC-12 as a substrate.  This is the same circuit without the
+extraneous bits and and with dedicated pads for the pot and for a limiting resistor for the
+emitter.  Terminal names stay close to the originals.  This ***may*** be a cost effective or
+easier option for those needing a small number of detectors.  It will work as an ambient light
+detector without an emitter but you are responsible for controlling ambient light and ensuring
+illumination is consistent.
