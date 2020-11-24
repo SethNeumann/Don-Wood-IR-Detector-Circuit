@@ -5928,8 +5928,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="J1" library="SPCoast" deviceset="CONNECTOR-M08" device="LOCK"/>
 <part name="U1" library="SPCoast" deviceset="LM324" device="N"/>
 <part name="GND1" library="SPCoast" deviceset="GND" device=""/>
-<part name="R3" library="SPCoast" deviceset="R*" device="PTH04" value="470"/>
-<part name="R4" library="SPCoast" deviceset="R*" device="PTH04" value="470"/>
+<part name="R3" library="SPCoast" deviceset="R*" device="PTH04" value="4.7K"/>
+<part name="R4" library="SPCoast" deviceset="R*" device="PTH04" value="4.7K"/>
 <part name="GND2" library="SPCoast" deviceset="GND" device=""/>
 <part name="GND3" library="SPCoast" deviceset="GND" device=""/>
 <part name="R5" library="pot" deviceset="TRIM_US-" device="RS3" value="10K"/>
@@ -5946,14 +5946,12 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <part name="J4" library="SPCoast" deviceset="CONNECTOR-M02" device="1X02-LOCK"/>
 <part name="GND6" library="SPCoast" deviceset="GND" device=""/>
 <part name="LED1" library="SPCoast" deviceset="LED*" device="LED3MM" value="RED"/>
-<part name="GND7" library="SPCoast" deviceset="GND" device=""/>
 <part name="CON1" library="SPCoast" deviceset="CONNECTOR-DC-POWER" device="-RA" value="DC PWR"/>
 <part name="GND8" library="SPCoast" deviceset="GND" device=""/>
 <part name="R8" library="SPCoast" deviceset="R*" device="PTH04" value="470"/>
 <part name="R11" library="SPCoast" deviceset="R*" device="PTH-R0" value="0"/>
 <part name="LED2" library="SPCoast" deviceset="LED*" device="LED3MM" value="RED"/>
 <part name="R12" library="SPCoast" deviceset="R*" device="PTH04" value="470"/>
-<part name="GND9" library="SPCoast" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5976,19 +5974,23 @@ A2 (active low)
 B2 (active active high)
 + to Emitter 2
 GND to Emitter 2</text>
-<text x="93.98" y="152.4" size="1.778" layer="97">R 7,8,9,10 are cuttable pads,
+<text x="182.88" y="172.72" size="1.778" layer="97">R 7,8,9,10 are cuttable pads,
 insert limiting resitors here 
 if driving LEDs</text>
 <text x="175.26" y="101.6" size="1.778" layer="97">+V for LED on A1
-GND for LED on B1</text>
+GND for LED on B1 (flag)</text>
 <text x="175.26" y="86.36" size="1.778" layer="97">+V for LED on A2
-GND for LED on B2</text>
+GND for LED on B2 (flag)</text>
 <text x="45.72" y="88.9" size="1.778" layer="97">typical ref voltage on pins
-2, 6, 10,12 = 4V at VCC=5
-typical input voltage at pims
-3, 5, 9, 13 = 4.1 idle and
+2,12, 6,10 = 3V at VCC=5
+typical input voltage at pins
+3,,13 5,9 = 4.1 idle and
 0.9 with sensor covered</text>
 <text x="91.44" y="106.68" size="1.778" layer="97">Test LED</text>
+<text x="45.72" y="170.18" size="1.778" layer="97">R3,4 set the sensitivity of the sensor.  The higher
+the value the more sensitive, but also the more
+succeptible to interference.  4.7K is a good
+starting value for the PT19.</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="FRAME" x="0" y="0"/>
@@ -6000,8 +6002,8 @@ typical input voltage at pims
 </instance>
 <instance part="J1" gate="G$1" x="167.64" y="137.16" rot="MR0"/>
 <instance part="U1" gate="A" x="88.9" y="116.84"/>
-<instance part="U1" gate="B" x="91.44" y="30.48"/>
-<instance part="U1" gate="C" x="91.44" y="50.8"/>
+<instance part="U1" gate="B" x="83.82" y="30.48"/>
+<instance part="U1" gate="C" x="83.82" y="50.8"/>
 <instance part="U1" gate="D" x="88.9" y="139.7" smashed="yes">
 <attribute name="NAME" x="96.52" y="145.415" size="1.778" layer="95"/>
 <attribute name="VALUE" x="78.74" y="149.86" size="1.778" layer="96"/>
@@ -6030,27 +6032,21 @@ typical input voltage at pims
 <instance part="J3" gate="J" x="167.64" y="104.14" rot="R180"/>
 <instance part="J4" gate="J" x="167.64" y="88.9" rot="R180"/>
 <instance part="GND6" gate="1" x="152.4" y="81.28"/>
-<instance part="LED1" gate="LED" x="109.22" y="106.68"/>
-<instance part="GND7" gate="1" x="109.22" y="83.82" smashed="yes">
-<attribute name="VALUE" x="106.68" y="81.28" size="1.778" layer="96"/>
-</instance>
+<instance part="LED1" gate="LED" x="106.68" y="160.02"/>
 <instance part="CON1" gate="J" x="170.18" y="157.48" smashed="yes" rot="R180">
 <attribute name="NAME" x="182.88" y="158.75" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="172.72" y="163.83" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND8" gate="1" x="149.86" y="154.94"/>
-<instance part="R8" gate="R" x="109.22" y="96.52" smashed="yes" rot="MR90">
-<attribute name="NAME" x="110.7186" y="92.71" size="1.778" layer="95" rot="MR90"/>
-<attribute name="VALUE" x="105.918" y="92.71" size="1.778" layer="96" rot="MR90"/>
+<instance part="R8" gate="R" x="106.68" y="149.86" smashed="yes" rot="MR90">
+<attribute name="NAME" x="108.1786" y="146.05" size="1.778" layer="95" rot="MR90"/>
+<attribute name="VALUE" x="103.378" y="146.05" size="1.778" layer="96" rot="MR90"/>
 </instance>
 <instance part="R11" gate="R" x="119.38" y="116.84"/>
-<instance part="LED2" gate="LED" x="121.92" y="43.18"/>
-<instance part="R12" gate="R" x="121.92" y="33.02" smashed="yes" rot="MR90">
-<attribute name="NAME" x="123.4186" y="29.21" size="1.778" layer="95" rot="MR90"/>
-<attribute name="VALUE" x="118.618" y="29.21" size="1.778" layer="96" rot="MR90"/>
-</instance>
-<instance part="GND9" gate="1" x="121.92" y="22.86" smashed="yes">
-<attribute name="VALUE" x="119.38" y="20.32" size="1.778" layer="96"/>
+<instance part="LED2" gate="LED" x="96.52" y="68.58"/>
+<instance part="R12" gate="R" x="96.52" y="58.42" smashed="yes" rot="MR90">
+<attribute name="NAME" x="98.0186" y="54.61" size="1.778" layer="95" rot="MR90"/>
+<attribute name="VALUE" x="90.678" y="54.61" size="1.778" layer="96" rot="MR90"/>
 </instance>
 </instances>
 <busses>
@@ -6121,11 +6117,6 @@ typical input voltage at pims
 <wire x1="162.56" y1="71.12" x2="165.1" y2="71.12" width="0.3048" layer="91"/>
 </segment>
 <segment>
-<wire x1="109.22" y1="86.36" x2="109.22" y2="91.44" width="0.3048" layer="91"/>
-<pinref part="GND7" gate="1" pin="GND"/>
-<pinref part="R8" gate="R" pin="1"/>
-</segment>
-<segment>
 <pinref part="CON1" gate="J" pin="2"/>
 <pinref part="CON1" gate="J" pin="3"/>
 <wire x1="162.56" y1="157.48" x2="162.56" y2="160.02" width="0.4064" layer="91"/>
@@ -6143,11 +6134,6 @@ typical input voltage at pims
 <wire x1="162.56" y1="88.9" x2="152.4" y2="88.9" width="0.4064" layer="91"/>
 <junction x="152.4" y="88.9"/>
 <pinref part="J3" gate="J" pin="A"/>
-</segment>
-<segment>
-<pinref part="GND9" gate="1" pin="GND"/>
-<pinref part="R12" gate="R" pin="1"/>
-<wire x1="121.92" y1="25.4" x2="121.92" y2="27.94" width="0.3048" layer="91"/>
 </segment>
 </net>
 <net name="A1" class="0">
@@ -6217,11 +6203,11 @@ typical input voltage at pims
 <wire x1="45.72" y1="48.26" x2="45.72" y2="63.5" width="0.3048" layer="91"/>
 <pinref part="R3" gate="R" pin="1"/>
 <pinref part="U1" gate="C" pin="-IN"/>
-<wire x1="83.82" y1="48.26" x2="45.72" y2="48.26" width="0.3048" layer="91"/>
+<wire x1="76.2" y1="48.26" x2="45.72" y2="48.26" width="0.3048" layer="91"/>
 <wire x1="45.72" y1="48.26" x2="45.72" y2="40.64" width="0.3048" layer="91"/>
 <pinref part="U1" gate="B" pin="+IN"/>
 <wire x1="45.72" y1="40.64" x2="45.72" y2="33.02" width="0.3048" layer="91"/>
-<wire x1="45.72" y1="33.02" x2="83.82" y2="33.02" width="0.3048" layer="91"/>
+<wire x1="45.72" y1="33.02" x2="76.2" y2="33.02" width="0.3048" layer="91"/>
 <junction x="45.72" y="48.26"/>
 <wire x1="106.68" y1="73.66" x2="106.68" y2="40.64" width="0.3048" layer="91"/>
 <wire x1="106.68" y1="40.64" x2="45.72" y2="40.64" width="0.3048" layer="91"/>
@@ -6234,54 +6220,53 @@ typical input voltage at pims
 <net name="REF2" class="0">
 <segment>
 <pinref part="U1" gate="C" pin="+IN"/>
-<wire x1="76.2" y1="53.34" x2="83.82" y2="53.34" width="0.3048" layer="91"/>
+<wire x1="68.58" y1="53.34" x2="76.2" y2="53.34" width="0.3048" layer="91"/>
 <pinref part="R5" gate="G$1" pin="S"/>
-<wire x1="66.04" y1="66.04" x2="76.2" y2="66.04" width="0.3048" layer="91"/>
-<wire x1="76.2" y1="66.04" x2="76.2" y2="53.34" width="0.3048" layer="91"/>
-<wire x1="76.2" y1="53.34" x2="76.2" y2="27.94" width="0.3048" layer="91"/>
+<wire x1="66.04" y1="66.04" x2="68.58" y2="66.04" width="0.3048" layer="91"/>
+<wire x1="68.58" y1="66.04" x2="68.58" y2="53.34" width="0.3048" layer="91"/>
+<wire x1="68.58" y1="53.34" x2="68.58" y2="27.94" width="0.3048" layer="91"/>
 <pinref part="U1" gate="B" pin="-IN"/>
-<wire x1="76.2" y1="27.94" x2="83.82" y2="27.94" width="0.3048" layer="91"/>
-<junction x="76.2" y="53.34"/>
+<wire x1="68.58" y1="27.94" x2="76.2" y2="27.94" width="0.3048" layer="91"/>
+<junction x="68.58" y="53.34"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="U1" gate="C" pin="OUT"/>
-<wire x1="99.06" y1="50.8" x2="109.22" y2="50.8" width="0.3048" layer="91"/>
+<wire x1="91.44" y1="50.8" x2="96.52" y2="50.8" width="0.3048" layer="91"/>
+<wire x1="96.52" y1="50.8" x2="109.22" y2="50.8" width="0.3048" layer="91"/>
 <wire x1="109.22" y1="50.8" x2="109.22" y2="68.58" width="0.3048" layer="91"/>
 <pinref part="R9" gate="R" pin="1"/>
 <wire x1="109.22" y1="68.58" x2="114.3" y2="68.58" width="0.3048" layer="91"/>
+<pinref part="R12" gate="R" pin="1"/>
+<wire x1="96.52" y1="50.8" x2="96.52" y2="53.34" width="0.3048" layer="91"/>
+<junction x="96.52" y="50.8"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="U1" gate="B" pin="OUT"/>
-<wire x1="99.06" y1="30.48" x2="111.76" y2="30.48" width="0.3048" layer="91"/>
-<wire x1="111.76" y1="30.48" x2="111.76" y2="50.8" width="0.3048" layer="91"/>
+<wire x1="91.44" y1="30.48" x2="111.76" y2="30.48" width="0.3048" layer="91"/>
+<wire x1="111.76" y1="30.48" x2="111.76" y2="60.96" width="0.3048" layer="91"/>
 <pinref part="R10" gate="R" pin="1"/>
-<wire x1="111.76" y1="50.8" x2="111.76" y2="60.96" width="0.3048" layer="91"/>
 <wire x1="111.76" y1="60.96" x2="114.3" y2="60.96" width="0.3048" layer="91"/>
-<pinref part="LED2" gate="LED" pin="A"/>
-<wire x1="121.92" y1="48.26" x2="121.92" y2="50.8" width="0.3048" layer="91"/>
-<wire x1="121.92" y1="50.8" x2="111.76" y2="50.8" width="0.3048" layer="91"/>
-<junction x="111.76" y="50.8"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="U1" gate="D" pin="OUT"/>
 <pinref part="R7" gate="R" pin="1"/>
-<wire x1="96.52" y1="139.7" x2="111.76" y2="139.7" width="0.3048" layer="91"/>
+<wire x1="96.52" y1="139.7" x2="106.68" y2="139.7" width="0.3048" layer="91"/>
+<wire x1="106.68" y1="139.7" x2="111.76" y2="139.7" width="0.3048" layer="91"/>
+<wire x1="106.68" y1="139.7" x2="106.68" y2="144.78" width="0.3048" layer="91"/>
+<pinref part="R8" gate="R" pin="1"/>
+<junction x="106.68" y="139.7"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="OUT"/>
-<wire x1="96.52" y1="116.84" x2="109.22" y2="116.84" width="0.3048" layer="91"/>
-<pinref part="LED1" gate="LED" pin="A"/>
-<wire x1="109.22" y1="116.84" x2="114.3" y2="116.84" width="0.3048" layer="91"/>
-<wire x1="109.22" y1="111.76" x2="109.22" y2="116.84" width="0.3048" layer="91"/>
-<junction x="109.22" y="116.84"/>
+<wire x1="96.52" y1="116.84" x2="114.3" y2="116.84" width="0.3048" layer="91"/>
 <pinref part="R11" gate="R" pin="1"/>
 </segment>
 </net>
@@ -6304,6 +6289,9 @@ typical input voltage at pims
 <wire x1="45.72" y1="165.1" x2="38.1" y2="165.1" width="0.3048" layer="91"/>
 <junction x="45.72" y="165.1"/>
 <label x="38.1" y="165.1" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="LED1" gate="LED" pin="A"/>
+<wire x1="91.44" y1="165.1" x2="106.68" y2="165.1" width="0.3048" layer="91"/>
+<junction x="91.44" y="165.1"/>
 </segment>
 <segment>
 <pinref part="R3" gate="R" pin="2"/>
@@ -6312,6 +6300,9 @@ typical input voltage at pims
 <wire x1="45.72" y1="73.66" x2="38.1" y2="73.66" width="0.3048" layer="91"/>
 <junction x="45.72" y="73.66"/>
 <label x="38.1" y="73.66" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="LED2" gate="LED" pin="A"/>
+<wire x1="96.52" y1="73.66" x2="60.96" y2="73.66" width="0.3048" layer="91"/>
+<junction x="60.96" y="73.66"/>
 </segment>
 <segment>
 <pinref part="R1" gate="R" pin="1"/>
@@ -6364,7 +6355,7 @@ typical input voltage at pims
 <net name="N$16" class="0">
 <segment>
 <pinref part="LED1" gate="LED" pin="C"/>
-<wire x1="109.22" y1="101.6" x2="109.22" y2="104.14" width="0.3048" layer="91"/>
+<wire x1="106.68" y1="154.94" x2="106.68" y2="157.48" width="0.3048" layer="91"/>
 <pinref part="R8" gate="R" pin="2"/>
 </segment>
 </net>
@@ -6372,7 +6363,7 @@ typical input voltage at pims
 <segment>
 <pinref part="R12" gate="R" pin="2"/>
 <pinref part="LED2" gate="LED" pin="C"/>
-<wire x1="121.92" y1="38.1" x2="121.92" y2="40.64" width="0.3048" layer="91"/>
+<wire x1="96.52" y1="63.5" x2="96.52" y2="66.04" width="0.3048" layer="91"/>
 </segment>
 </net>
 </nets>
