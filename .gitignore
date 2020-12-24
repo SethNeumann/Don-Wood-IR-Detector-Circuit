@@ -24,3 +24,7 @@ work files/MRCS-Don-Wood-IR-Detector-Circuit-aa.sch
 *.b#4
 *.dri
 *.gpi
+MRCS-Don-Wood-IR-Detector-Circuit-array.brd
+*.GML
+*.GTP
+*.scr
